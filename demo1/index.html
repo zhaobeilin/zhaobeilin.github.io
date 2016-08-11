@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>德康之家</title>
+	<link rel="shortcut icon" href="images/webicon.png"  type="image/x-icon">
+	<link rel="stylesheet" href="css/style.css"></head>
+<body>
+	<div class="top">
+		<!-- top开始 -->
+		<div class="top_con">
+			<img src="images/logo.jpg" alt="">
+			<ul class="list">
+				<li>
+					<a href="#">HOME首页</a>
+				</li>
+				<li>
+					<a href="#">WORKS案例</a>
+				</li>
+				<li>
+					<a href="#">NEWS动态</a>
+				</li>
+				<li>
+					<a href="#">WE我们</a>
+				</li>
+				<li>
+					<a href="#">CONTACT联系</a>
+				</li>
+				<li>
+					<a href="#">
+						<form action="" method="post">
+							<input type="text" class="search_text" placeholder="搜索..."></form>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- top 结束 -->
+		<div class="main">
+			<div class="banner1">
+				<!-- banner1 开始 -->
+				<img src="images/banner1.jpg" alt="">
+				<div class="service">
+					<h2>
+						我们的服务
+						<span>OUR SERVICE</span>
+					</h2>
+					<p>
+						To create a unique education with innovative ideas,make innovatove thinking from beginning to end
+						<br>through the growth of children.</p>
+				</div>
+			</div>
+			<!-- banner1 结束 -->
+
+			<div class="banner2">
+				<!-- banner2 开始 -->
+				<div class="home">
+					<div class="home_box" id="box1">
+						<img src="images/home1_h.jpg" alt="">
+						<b>
+						<h2>品牌之念</h2>
+						<p>BRANDS</p>
+						</b>
+					</div>
+					
+					<div class="home_box" id="box2">
+						<img src="images/hom2_h.jpg" alt="">
+						<b>
+						<h2>创意之所</h2>
+						<p>SPACE</p>
+						</b>
+					</div>
+					<div class="home_box" id="box3">
+						<img src="images/home3_h.jpg" alt="">
+						<b>
+						<h2>点睛之物</h2>
+						<p>PRODUCT</p>
+						</b>
+					</div>
+					<div class="home_box" id="box4">
+						<img src="images/home4_h.jpg" alt="">
+						<b>
+						<h2>成长之课</h2>
+						<p>COURSE</p>
+						</b>
+					</div>
+				</div>
+				<div class="customer">
+					<h2>我们的客户</h2>
+					<span>OUR CUSTOMER</span>
+					<div class="carousel">
+						<div class="banner">
+							<ul class="img">
+								<li>
+									<a href="#">
+										<img src="images/beijinxuexiao.jpg" alt="">
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/beijinxuexiao.jpg" alt="">
+									</a>
+								</li>
+							</ul>
+
+							<ul class="num"></ul>
+
+							<div class="btn btn_l">&lt;</div>
+							<div class="btn btn_r">&gt;</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- banner2 结束 -->
+
+		</div>
+		<div class="footer">
+				<h2>关注我们</h2>
+					<span style="background:url(images/tel.gif) no-repeat 0px 10px;padding-left:30px">TEl：000-000000</span><span style="background:url(images/email.gif) no-repeat 0px 10px;padding-left:30px">EMAIL：XXXX@.COM</span><span style="background:url(images/add.gif) no-repeat 0px 10px;padding-left:30px">ADDRESS：XXXXXXXXXXXXXXXXX</span>
+						
+				<p>www.dekangtaihe.com</p>
+
+			</div>
+		
+	</div>
+
+	<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript">
+
+$(function(){/*轮播代码插件*/
+	
+	var i=0;
+	var clone=$(".banner .img li").first().clone();
+	$(".banner .img").append(clone);	
+	var size=$(".banner .img li").size();	
+	for(var j=0;j<size-1;j++){
+		$(".banner .num").append("<li></li>");
+	}
+	$(".banner .num li").first().addClass("on");
+	
+	
+	/*鼠标划入圆点*/
+	$(".banner .num li").hover(function(){
+		var index=$(this).index();
+		i=index;
+		$(".banner .img").stop().animate({left:-index*1030},500)	
+		$(this).addClass("on").siblings().removeClass("on")		
+	})
+	
+	
+	/*自动轮播*/
+	var t=setInterval(function(){
+		i++;
+		move()
+	},2000)
+	
+	
+	/*对banner定时器的操作*/
+	$(".banner").hover(function(){
+		clearInterval(t);
+	},function(){
+		t=setInterval(function(){
+			i++;
+			move()
+		},2000)
+	})
+	
+	
+	
+	/*向左的按钮*/
+	$(".banner .btn_l").click(function(){
+		i++
+		move();	
+	})
+	
+	
+	
+	/*向右的按钮*/
+	$(".banner .btn_r").click(function(){
+		i--
+		move()				
+	})
+	
+	
+	
+	function move(){
+		
+		if(i==size){
+			$(".banner  .img").css({left:0})			
+			i=1;
+		}
+		
+		
+		if(i==-1){
+			$(".banner .img").css({left:-(size-1)*1030})
+			i=size-2;
+		}
+		
+		$(".banner .img").stop().animate({left:-i*1030},500)	
+		
+		if(i==size-1){
+			$(".banner .num li").eq(0).addClass("on").siblings().removeClass("on")	
+		}else{		
+			$(".banner .num li").eq(i).addClass("on").siblings().removeClass("on")	
+		}
+		
+
+	}
+})
+
+
+
+</script>
+</body>
+</html>
