@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!--第1步.设置meta标签。首先我们在使用Media的时候需要先设置下面这段代码，来兼容移动设备的展示效果 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- 第2步。加载兼容文件JS -->
+
+	<!--[if lt IE 9]>
+	<script src="js/html53.7.0.js"></script>
+	<script src="js/respond1.3.0min.js"></script>
+	<![endif]-->
+
+	<!-- 第3步。设置IE渲染方式默认为最高(这部分可以选择添加也可以不添加) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+	<title>@mdedia-panel</title>
+	<!-- 引入第3方框架bootstrap -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<style type="text/css">
+		/*设备宽度小于640时的 body 样式*/
+		@media screen and (max-device-width:640px){
+			.top_logo{
+				height: 100px;
+				padding-top: 20px;
+			}
+			.top_text{
+				padding-top: 30px;
+				padding-bottom: 30px;
+			}
+
+			.top_text_l{
+				font-size: 19px;
+				height: 40px;
+				line-height: 40px;
+			}
+
+			.top_text_r{
+				font-size: 27px;
+				height: 40px;
+				line-height: 40px;
+			}
+			
+			.mid_logo{
+				padding-top: 10px;
+				height: 80px;
+			}
+			
+			.mid_logo_con img{
+				height: 40px;
+			}
+			.lv_box{
+				margin-top: 25px;
+			}
+
+			.lv_up{
+				font-size: 27px;
+			}
+
+			.bottom_content{
+				padding-top: 20px;
+			}
+			body{
+				background-color: #19cad5;
+			}
+			.container{
+				overflow: hidden;
+			}
+		}/*@media<640px end*/
+
+		/*屏幕宽度大于641时的 body 样式*/
+		@media screen and (min-width:641px){
+			.top_logo{
+				padding-top: 53px;
+				padding-bottom: 40px;
+			}
+
+			.mid_logo{
+				padding-top: 30px;
+				margin-top: 35px;
+				margin-bottom: 35px;
+				height: 137px;
+			}
+
+			.top_text_l{
+				font-size: 27px;
+				height: 50px;
+				line-height: 50px;
+			}
+
+			.top_text_r{
+				font-size: 40px;
+				height: 50px;
+				line-height: 50px;
+			}	
+			.lv_box{
+				margin-top: 45px;
+				margin-bottom: 45px;
+
+			}
+			.lv_up{
+				font-size: 36px;
+				height: 67px;
+				line-height: 67px;
+			}
+			.container{
+				background-color: #19cad5;
+				height: 1010px;
+				max-width: 640px;
+			}
+		}/*@media>640px end*/
+
+		/*comment css*/
+		*{
+			font-family: "Microsoft Yahei";
+		}
+		html,body{
+			height: 100%;
+		}
+
+		.top_logo_con{
+			height: 100%;
+			text-align: center;
+		}
+		.top_logo_con img{
+			height: 100%;
+		}
+		.top_text_l{
+			background-color:#f39800;
+			color: #fff;
+		}
+		.mid_logo{
+			background-color: #fff;	
+		}
+		.mid_logo_con{
+			height: 100%;
+			cursor: pointer;
+		}
+		.lv_up{
+			background-color:#f39800;
+			border-radius: 50px;
+			color: #fff;
+		}
+		.bottom_content > div{
+			line-height: 2;
+		}
+		.top_logo_pic,.top_text_r,.bottom_content_item{
+			display: none;
+		}
+		.on{
+			display: block;
+		}
+		.active{
+		 -webkit-transform: scale(1.2);
+			-moz-transform: scale(1.2);
+			 -ms-transform: scale(1.2);
+			  -o-transform: scale(1.2);
+				 transform: scale(1.2);
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="row top_logo" >
+			<div class="col-xs-4 col-xs-offset-4 top_logo_con top_logo_pic on">
+				<img src="img/yin-big.png"></div>
+			<div class="col-xs-4 col-xs-offset-4 top_logo_con top_logo_pic">
+				<img src="img/jin_big.png"></div>
+			<div class="col-xs-4 col-xs-offset-4 top_logo_con top_logo_pic">
+				<img src="img/zuan_big.png"></div>
+			<div class="col-xs-4 col-xs-offset-4 top_logo_con top_logo_pic">
+				<img src="img/huan_big.png"></div>
+		</div>
+		<!-- top_logo end -->
+
+		<div class="row top_text">
+			<div class="col-xs-4 col-xs-offset-2 text-center top_text_l">当前等级</div>
+			<div class="col-xs-4 text-center top_text_r on">银牌</div>
+			<div class="col-xs-4 text-center top_text_r">金牌</div>
+			<div class="col-xs-4 text-center top_text_r">钻石</div>
+			<div class="col-xs-4 text-center top_text_r">皇冠</div>
+		</div>
+		<!-- top_text end -->
+
+		<div class="row mid_logo">
+			<div class="col-xs-3 text-center mid_logo_con">
+				<img src="img/yin_min.png" >
+				<p>银牌</p>
+			</div>
+			<div class="col-xs-3 text-center mid_logo_con">
+				<img src="img/jin-min.png" >
+				<p>金牌</p>
+			</div>
+			<div class="col-xs-3 text-center mid_logo_con">
+				<img src="img/zuan-min.png" >
+				<p>钻石</p>
+			</div>
+			<div class="col-xs-3 text-center mid_logo_con">
+				<img src="img/huan_min.png" >
+				<p>皇冠</p>
+			</div>
+		</div>
+		<!-- mid_logo end -->
+
+		<div class="row lv_box">
+			<div class="col-xs-8 col-xs-offset-2 text-center lv_up">马上升级</div>
+		</div>
+		<!-- lv_box end -->
+
+		<div class="row bottom_content">
+			<div class="col-xs-10 col-xs-offset-1 bottom_content_item on">
+				<h3>银牌￥1998</h3>
+				<p>
+					1、享有名下直接会员佣金：一级人脉40元/人，二级人脉25元/人，三级人脉20元/人，四级之后10元/人。
+					<br>
+					2、名下会员，每提现100元，可获得返现20元。
+					<br>
+					3、推荐代理，可享有代理缴费金额一级(直接)35%；二级、三级、四级(间接)15%；五级(间接)以下3%的佣金。
+					<br>4、享有名下直接代理所推会员佣金：5元/人。</p>
+			</div>
+
+			<div class="col-xs-10 col-xs-offset-1 bottom_content_item">
+				<h3>金牌￥3998</h3>
+				<p>
+					1、享有名下直接会员佣金：一级人脉45元/人，二级人脉30元/人，三级人脉25元/人，四级之后15元/人。
+					<br>
+					2、名下会员，每提现100元，可获得返现30元。
+					<br>
+					3、推荐代理，可享有代理缴费金额一级(直接)35%；二级、三级、四级(间接)15%；五级(间接)以下3%的佣金。
+					<br>4、享有名下直接代理所推会员佣金：5元/人。</p>
+			</div>
+
+			<div class="col-xs-10 col-xs-offset-1 bottom_content_item">
+				<h3>钻石￥5998</h3>
+				<p>
+					1、享有名下直接会员佣金：一级人脉50元/人，二级人脉35元/人，三级人脉30元/人，四级之后20元/人。
+					<br>
+					2、名下会员，每提现100元，可获得返现50元。
+					<br>
+					3、推荐代理，可享有代理缴费金额一级(直接)35%；二级、三级、四级(间接)15%；五级(间接)以下3%的佣金。
+					<br>4、享有名下直接代理所推会员佣金：5元/人。</p>
+			</div>
+
+			<div class="col-xs-10 col-xs-offset-1 bottom_content_item">
+				<h3>皇冠￥10000</h3>
+				<p>
+					1、享有名下直接会员佣金：一级人脉55元/人，二级人脉40元/人，三级人脉35元/人，四级之后25元/人。
+					<br>
+					2、名下会员，每提现100元，可获得返现50元。
+					<br>
+					3、推荐代理，可享有代理缴费金额一级(直接)38%；二级、三级、四级(间接)18%；五级(间接)以下6%的佣金。
+					<br>4、享有名下所有代理所推会员佣金：5元/人。</p>
+			</div>
+		</div>
+		<!-- bottom_content end -->
+	</div>
+
+	<!-- javascript 脚本 -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.transit.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".mid_logo_con").click(function() {
+				var i = $(this).index();
+
+				$(".top_logo_pic").eq(i).addClass('on').siblings().removeClass('on');
+				$(".top_text_r").eq(i).addClass('on').siblings().removeClass('on');
+				$(".bottom_content_item").eq(i).addClass('on').siblings().removeClass('on');
+
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+
+		})
+	</script>
+</body>
+</html>
