@@ -28,7 +28,32 @@
 			background-image: url(images/bg.jpg);
 			background-repeat: no-repeat;
 			-webkit-background-size: cover;
+			background-position: 50% 8%;
 			background-size: cover;
+			overflow: hidden;
+		}
+		.windmill{
+			width: 200px;
+			height: 200px;
+			background: url(images/windmill.png) no-repeat center;
+			-webkit-background-size: cover;
+			background-size: cover;
+			animation: windmill 3s linear infinite;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			cursor: pointer;
+		}
+		.windmill:hover{
+			animation: windmill_Clear;
+		}
+		@keyframes windmill{
+			form {transform: rotate(0deg)}
+			to {transform: rotate(-360deg)}
+		}
+		@keyframes windmill_Clear{
+			form {transform: rotate(0deg)}
+			to {transform: rotate(0deg)}
 		}
 	</style>
 </head>
@@ -44,5 +69,6 @@
 		<li><a href="https://zhaobeilin.github.io/box/index.html">插件测试-纯js轻量级响应式lightbox插件</a></li>
 		<li><a href="https://zhaobeilin.github.io/banner.html">轮播图</a></li>
 	</ol>
+	<div class="windmill"></div>
 </body>
 </html>
