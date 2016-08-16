@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>qqIndex</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		.wrap{
+			width: 100%;
+			height: 580px;
+			position: relative;
+		}
+		.wrap li a,.wrap li a img{
+			display: block;
+		}
+		.wrap li a img{
+			width: 100%;
+		}
+		.pic-list li {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+		}
+		.number-list {
+			position: absolute;
+			background: rgba(0,0,0,0.5);
+			top: 50px;
+			right: 50px;
+			z-index: 2;
+			font-family: "Microsoft Yahei";
+			font-size: 22px;
+		}
+		.number-list li a{
+			display: block;
+			padding: 5px 10px;
+			text-decoration: none;
+			color: #fff;
+		}
+		.number-list li a:hover{
+			background: rgba(0,255,0,0.5);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="pic-list">
+			<li><a href="#"><img src="images/0.jpg"></a></li>
+			<li><a href="#"><img src="images/1.jpg"></a></li>
+			<li><a href="#"><img src="images/2.jpg"></a></li>
+			<li><a href="#"><img src="images/3.jpg"></a></li>
+			<li><a href="#"><img src="images/4.jpg"></a></li>
+		</ul>
+		<ul class="number-list">
+			<li><a href="#">First banner</a></li>
+			<li><a href="#">Second banner</a></li>
+			<li><a href="#">Third banner</a></li>
+			<li><a href="#">Fourth banner</a></li>
+			<li><a href="#">Fifth banner</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.number-list li').hover(function(){
+				var index = $(this).index();
+				$('.pic-list li').eq(index).show().siblings('.pic-list li').hide();
+			});
+
+			/*定时器改变焦点图切换*/
+			//定义共有方法 move()
+			function move(){
+				var size = $('.number-list li').length;
+				i++;
+				if (i==size) {
+					i = 0 ;
+				}
+				$('.pic-list li').eq(i).stop().fadeIn().siblings('.pic-list li').hide();
+			}
+
+			var i = 0;
+			var t = setInterval(move,3000);
+
+			$('.wrap').hover(function() {
+				clearInterval(t)
+			}, function() {
+				t = setInterval(move,3000);
+			});
+		});
+	</script>
+</body>
+</html>
