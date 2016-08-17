@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Carousel</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		.banner{
+			position: relative;
+		}
+		.banner:hover .btn{
+			opacity: 1;
+		}
+		.img li{
+			display: none;
+		}
+		.img img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1;
+		}
+		.num{
+			position: absolute;
+			width: 100%;
+			font-size: 0;
+			text-align: center;
+			bottom: 0;
+			color: #fff;
+			z-index: 2;
+		}
+		.btn{
+			position: absolute;
+			top: 50%;
+			margin-top: -40px;
+			z-index: 2;
+			width: 30px;
+			height: 80px;
+			background: rgba(0,0,0,0.5);
+			text-align: center;
+			line-height: 80px;
+			color: #fff;
+			font-family: "宋体";
+			font-size: 30px;
+			opacity: 0;
+			transition: 1s;
+			cursor: pointer;
+		}
+		.btn_l{
+			left: 0;
+			border-radius: 0 5px 5px 0;
+		}
+		.btn_r{
+			right: 0;
+			border-radius: 5px 0 0 5px;
+		}
+		.num li{
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 50%;
+			background: rgba(0,0,0,0.5);
+			margin: 5px 3px;
+			font-family: "宋体";
+			text-align: center;
+			line-height: 20px;
+			cursor: pointer;
+		}
+		.num li.active{
+			background: rgba(0,255,0,0.5);
+		}
+	</style>
+</head>
+<body>
+	<div class="banner">
+		<ul class="img">
+			<li><a href="#"><img src="images/0.jpg"></a></li>
+			<li><a href="#"><img src="images/1.jpg"></a></li>
+			<li><a href="#"><img src="images/2.jpg"></a></li>
+			<li><a href="#"><img src="images/3.jpg"></a></li>
+			<li><a href="#"><img src="images/4.jpg"></a></li>
+		</ul>
+
+		<ul class="num"></ul>
+
+		<div class="btn btn_l">&lt;</div>
+		<div class="btn btn_r">&gt;</div>
+	</div>
+
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.img li').first().fadeIn().siblings().hide();
+
+			var imgH = $('.img img').height(); //这一种返回的是纯数字
+			// var imgH = $('.img img').css('height');//这种返回带px单位
+
+			 // alert(imgH);测试img高度对不对
+			$('.banner').css('height', imgH+'px');
+
+			//获取有多少张图片的长度值
+			var length = $('.img li').length;
+
+			//通过循环把li小圆点循环出来
+			for (var i = 1; i <= length; i++) {
+
+				//容易犯错的的点,字符串的拼接,这里必须是相同的引号才行
+				var li = '<li>'+i+'</li>';
+				$('.num').append(li);
+			}
+
+			//进入网页时候的默认选中的li
+			$('.num li').first().addClass('active');
+			var i = 0 ;
+			//左边控制按钮
+			$('.btn_l').click(function(){
+				i--;
+				if (i==-1) {
+					i = length-1;
+				}
+				$('.img li').eq(i).stop().fadeIn().siblings().stop().fadeOut();
+				$('.num li').eq(i).addClass('active').siblings().removeClass('active');
+			});
+
+			//右边控制按钮
+			function move(){
+				i++;
+				if (i==length) {
+					i = 0;
+				}
+				$('.img li').eq(i).stop().fadeIn().siblings().stop().fadeOut();
+				$('.num li').eq(i).addClass('active').siblings().removeClass('active');
+			}
+			$('.btn_r').click(function(){
+				move();
+			});
+
+			//鼠标经过圆点
+			$('.num li').hover(function(){
+				$(this).addClass('active').siblings().removeClass('active');
+				var index = $(this).index();
+				i = index;//赋值只能从右向左（自己测试好像是这样）这个地方容易出错和忽略
+				$('.img li').eq(index).stop().fadeIn().siblings().stop().fadeOut();
+			});
+
+			//设置定时器
+			var t = setInterval(move,2000);
+
+			$('.banner').hover(function() {
+				clearInterval(t)
+			}, function() {
+				t = setInterval(move,2000);
+			});
+
+		});
+	</script>
+</body>
+</html>
