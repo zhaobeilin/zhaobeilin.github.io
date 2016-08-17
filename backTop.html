@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.top{
+			width: 50px;
+			height: 50px;
+			background-color: rgba(0,0,0,0.5);
+			color: #fff;
+			font-size: 30px;
+			display: block;
+			text-align: center;
+			line-height: 50px;
+			text-decoration: none;
+			position: fixed;
+			bottom: 50px;
+			right: 50px;
+			display: none
+		}
+		.top:hover{
+			background-color: #093;
+		}
+	</style>
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(window).scroll(function(){
+				var t = $(this).scrollTop();
+				document.title = t;
+				if (t>300) {
+					$('.top').stop().fadeIn();
+				}else{
+					$('.top').stop().fadeOut();
+				}
+			});
+
+			$('.top').click(function(){
+				$('body,html').stop().animate({scrollTop:0},300);
+			});
+		});
+	</script>
+</head>
+<body>
+	<a href="javascript:;" class="top">∧</a>
+	<script type="text/javascript">
+		for (var i = 0; i < 100; i++) {
+			document.write("<h1>"+i+"<h1>")
+		}
+	</script>
+</body>
+</html>
