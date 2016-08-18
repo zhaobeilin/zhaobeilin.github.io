@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		.sidebar{
+			position: relative;
+		}
+		.list li{
+			width: 100px;
+			height: 89px;
+			text-align: center;
+			line-height: 89px;
+			background: #222;
+			color: #fff;
+			cursor: pointer;
+		}
+		.list li:hover{
+			background: #f60;
+		}
+		/*.list li:hover .con{
+			display: block;
+		}*/
+		.con{
+			background: #222;
+			position: absolute;
+			width: 200px;
+			height: 500px;
+			top: 0;
+			left: 100px;
+			display: none;
+			transition: 1s;
+		}
+	</style>
+</head>
+<body>
+	<div class="sidebar">
+		<ul class="list">
+			<li>
+				<h2>标签1</h2>
+				<div class="con">
+					<h3>首页</h3>
+					<img src="../images/01.png">
+				</div>
+			</li>
+			<li>
+				<h2>标签2</h2>
+				<div class="con">
+					<h3>标签2</h3>
+					<img src="../images/02.png">
+				</div>
+			</li>
+			<li>
+				<h2>标签3</h2>
+				<div class="con">
+					<h3>标签3</h3>
+					<img src="../images/03.png">
+				</div>
+			</li>
+			<li>
+				<h2>标签4</h2>
+				<div class="con">
+					<h3>标签4</h3>
+					<img src="../images/04.png">
+				</div>
+			</li>
+			<li>
+				<h2>标签5</h2>
+				<div class="con">
+					<h3>标签5</h3>
+					<img src="../images/05.png">
+				</div>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="../javascripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.list li').hover(function(){
+				$(this).find('.con').fadeIn();
+			},function(){
+				$(this).find('.con').hide();
+			});
+		});
+	</script>
+</body>
+</html>

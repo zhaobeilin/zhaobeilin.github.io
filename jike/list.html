@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Practical demo</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			font-family: "Microsoft Yahei";
+			font-size: 18px;
+		}
+		ol{
+			margin-left: 50px;
+			margin-top: 20px;
+		}
+		a{
+			display: inline-block;
+			color: #000;
+			padding: 5px 10px;
+			height: 30px;
+			line-height: 30px;
+		}
+		a:hover{
+			text-decoration: none;
+			background: #333;
+			color: #fff;
+		}
+		body{
+			background: lightgreen;
+		}
+		.windmill{
+			width: 0;
+			height: 0;
+			border-top: 50px solid red;
+			border-left: 50px solid blue;
+			border-bottom: 50px solid orange;
+			border-right: 50px solid green;
+			position: fixed;
+			bottom: 50px;
+			right: 50px;
+			animation: windmill 3s linear infinite;
+		}
+		@keyframes windmill {
+			0% {transform: rotate(0deg);}
+			100% {transform: rotate(-360deg);}
+		}
+	</style>
+</head>
+<body>
+	<div class="windmill"></div>
+	<ol>
+		<li>
+			<a href="scrollTop.html">判断导航条做导航滚动条动画</a>
+		</li>
+		<li>
+			<a href="tabTransition.html">Tab标签页的制作</a>
+		</li>
+	</ol>
+</body>
+</html>

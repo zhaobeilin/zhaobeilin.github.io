@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>判断导航条做导航滚动条动画</title>
+	<style type="text/css">
+		.nav{
+			width: 100%;
+			height: 100px;
+			background: rgba(0,0,0,0.5);
+			position: fixed;
+			top: -100px;
+			left: 0;
+			transition: 1s ease 0.2s;
+			cursor:pointer;
+		}
+		.nav.on{
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav"></div>
+
+	<!-- script -->
+	<script type="text/javascript" src="../javascripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+				for (var i = 0; i <100 ; i++) {
+					$('body').append("<h1>"+i+"</h1>")
+				}
+
+			var top1 = $(window).scrollTop();
+			$(window).scroll(function(){
+				var top2 = $(this).scrollTop();
+				if (top2>top1) {
+					$('.nav').removeClass('on');
+				} else {
+					$('.nav').addClass('on');
+				}
+				top1=top2;
+			});
+		});
+	</script>
+</body>
+</html>
