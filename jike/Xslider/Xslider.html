@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Xslider Demo</title>
+<meta name="Keywords" content=" " />
+<meta name="Description" content=" " />
+<style type="text/css">
+body{margin:0 auto;	text-align:center; color:#616161; font: 12px/1.5 arial, \5b8b\4f53;}
+ul,p{margin:0; padding:0;}
+li{list-style-type:none;}
+img{border:0;}
+:focus{outline:0;}
+
+
+h1{color:#000; margin-bottom:30px; font-size:30px;}
+h2{color:#000; background-color:#eee; width:540px; margin-left:auto; margin-right:auto; text-align:left; padding-left:5px;}
+a:link,a:visited{color:#333; text-decoration:none;}
+a:hover{color:#000;}
+
+a.abtn{
+	position:absolute;
+	top:50%;
+	font-size: 40px;
+	margin-top: -50px;
+	display:block;
+}
+a.aleft{
+	left: 0;
+	margin-left: -40px;
+}
+
+a.aright{
+	right: 0;
+	margin-right: -40px;
+}
+
+.productshow{
+	width:1000px;
+	height:234px;
+	padding:4px 0;
+	margin:20px auto;
+	position:relative;
+	text-align:center;
+	font-family:微软雅黑, 黑体;
+}
+.productshow .scrollcontainer{
+	width:920px;
+	height:232px;
+	overflow:hidden;
+	position:relative;
+	margin:0 auto;
+}
+.productshow .scrollcontainer ul{
+	width:20000px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.productshow .scrollcontainer li{
+	float:left;
+	width:184px;
+	height:232px;
+	text-align:center;
+}
+.productshow .scrollcontainer li.last{
+	background:none;
+}
+.productshow .scrollcontainer li div{
+	width:184px;
+	height:232px;
+	overflow:hidden;
+	text-align:center;
+}
+.productshow .scrollcontainer li div img{
+	width: 95%;
+	height: auto;
+	border: 2px solid black;
+}
+.productshow .scrollcontainer a:hover img{
+	filter:alpha(opacity=86);-moz-opacity:0.86;opacity:0.86;
+}
+
+</style>
+</head>
+
+<body>
+<h1>Xslider Demo</h1>
+
+<h2>循环切换</h2>
+<div class="productshow">
+	<div class="scrollcontainer">
+		<ul>
+			<li>
+				<div><a href="###"><img src="img/01.png" alt="" /></a></div>
+			</li>
+			<li>
+				<div><a href="###"><img src="img/02.png" alt="" /></a></div>
+			</li>
+            <li>
+				<div><a href="###"><img src="img/03.png" alt="" /></a></div>
+			</li>
+            <li>
+				<div><a href="###"><img src="img/04.png" alt="" /></a></div>
+			</li>
+			<li>
+				<div><a href="###"><img src="img/05.png" alt="" /></a></div>
+			</li>
+			<li>
+				<div><a href="###"><img src="img/06.png" alt="" /></a></div>
+			</li>
+		</ul>
+	</div>
+	<a class="abtn aleft" href="#left">&lt;</a>
+	<a class="abtn aright" href="#right">&gt;</a>
+</div>
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/Xslider.js"></script>
+<script type="text/javascript">
+$(function(){
+	//循环切换;
+	$(".productshow").Xslider({
+		unitdisplayed:5,
+		numtoMove:2,
+		loop:"cycle",
+		speed:500,
+		autoscroll:2000
+	});
+	
+	
+	$("a").focus(function(){this.blur();});
+})
+</script>
+</body>
+</html>
