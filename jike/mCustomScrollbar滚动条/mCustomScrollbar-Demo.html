@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mCustomScrollbar简单参数认知</title>
+	<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			overflow: auto;
+			margin: 50px auto;/*只有设置这个auto，内容溢出时才出现导航条*/
+		}
+		._mCS_1 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+			/*mCustomScrollbar 的第一个选择器 第二个只需改为._mCS_2 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar（原理就是css中有计数的机制在）*/
+		    background: #09c;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+		<p>HEllo</p>
+	</div>
+
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mCustomScrollbar.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.box').mCustomScrollbar({
+				scrollInertia:2000,/*滚动的惯性值 在毫秒中 使用0可以无滚动惯性 (滚动惯性可以使区块滚动更加平滑)*/
+				mouseWheelPixels:10,/*鼠标滚动中滚动的像素数目 值为以像素为单位的数值*/
+			});
+		});
+	</script>
+</body>
+</html>
