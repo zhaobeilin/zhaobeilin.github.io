@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flexbox</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.box{
+			width: 1000px;
+			height: 300px;
+			display: flex;
+			margin: 20px auto;
+			justify-content: center;
+		}
+		.item{
+			flex: 1;
+			margin: 6px;
+			box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+		}
+		.item:hover{
+			box-shadow: 3px 3px 18px rgba(0,0,0,0.6);
+		}
+		.item_shadow{
+			box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+		}
+		.item_shadow:hover{
+			box-shadow: 3px 3px 18px rgba(0,0,0,0.6);
+		}
+		.item-3,.item-2{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		.item-2{
+			flex: 1;
+		}
+		.item-3{
+			flex: 2;
+		}
+		.con-1{
+			flex: 1;
+			background: #f60;
+			margin-bottom: 5px;
+		}
+		.con-2{
+			flex: 1;
+		}
+		.con-warp{
+			display: flex;
+		}
+		.con-item{
+			flex: 1;
+			background: #00f;
+		}
+		.back-top{
+					width: 50px;
+					height: 50px;
+					background-color: rgba(0,0,0,0.5);
+					color: #fff;
+					font-size: 30px;
+					display: block;
+					text-align: center;
+					line-height: 50px;
+					text-decoration: none;
+					position: fixed;
+					bottom: 50px;
+					right: 50px;
+					display: none
+			}
+			.back-top:hover{
+				background-color: rgba(0,200,0,0.5);
+			}
+		.b_con_warp{
+			position: relative;
+			overflow: hidden;
+		}
+		.b_con_warp:hover .b_con_2{
+			top: 30%;
+		}
+		.b_con_1{
+			width: 100%;
+			height: 100%;
+			background: lightgreen;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.b_con_2{
+			width: 100%;
+			height: 100%;
+			background: #555;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transition: .3s;
+		}
+		nav{
+			width: 100%;
+			height: 70px;
+			background: #333;
+		}
+		nav .t_nav_warp a{
+			text-decoration: none;
+			line-height: 70px;
+			display: inline-block;
+			color: #fff;
+			width: 100px;
+			text-align: center;
+		}
+		nav .t_nav_warp a:hover{
+			background: #222
+		}
+		.t_nav_warp{
+			width: 1000px;
+			margin: 0 auto;
+		}
+		footer{
+			width: 100%;
+			height: 300px;
+			background: #333;
+			display: flex;
+			justify-content: center;
+		}
+		footer .f_item{
+			flex: 1;
+			width: 20%;
+			height: 90%;
+			margin: 3px;
+			color: #fff;
+		}
+		.f_item dl{
+			text-align: center;
+			padding-top: 45px;
+		}
+		.f_item dl dt,.f_item dl dd{
+			padding: 5px;
+			font-family: "Microsoft Yahei";
+		}
+		.f_item dl dt{
+			font-weight: bolder;
+		}
+		.f_item dl dd{
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<div class="t_nav_warp">
+			<a href="#">首页</a>
+			<a href="#">加入收藏</a>
+			<a href="#">在心课程</a>
+			<a href="#">个人中心</a>
+			<a href="#">关于我们</a>
+		</div>
+	</nav>
+	<!-- <div class="container"> -->
+		<div class="content" style="width:1000px;height:300px;margin:20px auto;overflow:hidden;"><!-- 样式 修改-->
+			<div id="slider">
+				<a href="#"><img src="img/demo1.jpg"/></a>
+				<a href="#"><img src="img/demo2.jpg"/></a>
+				<a href="#"><img src="img/demo3.jpg"/></a>
+				<a href="#"><img src="img/demo4.jpg"/></a>
+				<a href="#"><img src="img/demo5.jpg"/></a>
+				<a href="#"><img src="img/demo6.jpg"/></a>
+				<a href="#"><img src="img/demo6.jpg"/></a>
+			</div>
+		</div>
+	<!-- </div> -->
+
+    <div class="box">
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-2">
+    		<div class="con con-1"></div>
+    		<div class="con con-2"></div>
+    	</div>
+    	<div class="item item-3">
+    		<div class="con con-1"></div>
+    		<div class="con con-2"></div>
+    	</div>
+    	<div class="item item-4 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    </div><!-- box0 -->
+
+    <div class="box" style="height:200px;">
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-2 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-5 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>  	
+    </div><!-- box1 -->
+
+    <div class="box">
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-2">
+    		<div class="con con-1"></div>
+    		<div class="con con-2"></div>
+    	</div>
+    	<div class="item item-3" style="box-shadow: none;">
+    		<div class="con con-1 item_shadow"></div>
+    		<div class="con con-2 con-warp">
+    			<div class="con-item item_shadow" style="margin-right: 6px;margin-top: 6px;"></div>
+    			<div class="con-item item_shadow" style="margin-top: 6px;margin-left: 6px;margin-right: 6px;"></div>
+    			<div class="con-item item_shadow" style="margin-left: 6px;margin-top: 6px;"></div>
+    		</div>
+    	</div>
+    	<div class="item item-4 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    </div><!-- box2 -->
+
+    <div class="box" style="height:200px;">
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-2 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-5 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>  	
+    </div><!-- box3 -->
+
+    <div class="box">
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	
+    	<div class="item item-3" style="box-shadow: none;">
+    		<div class="con con-1 item_shadow"></div>
+    		<div class="con con-2 con-warp">
+    			<div class="con-item item_shadow" style="margin-right: 6px;margin-top: 6px;"></div>
+    			<div class="con-item item_shadow" style="margin-top: 6px;margin-left: 6px;margin-right: 6px;"></div>
+    			<div class="con-item item_shadow" style="margin-left: 6px;margin-top: 6px;"></div>
+    		</div>
+    	</div>
+    	<div class="item item-4 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    </div><!-- box4 -->
+
+    <div class="box">
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>   		
+    	<div class="item item-3">
+    		<div class="con con-1"></div>
+    		<div class="con con-2"></div>
+    	</div>
+
+    	<div class="item item-2">
+    		<div class="con con-1"></div>
+    		<div class="con con-2"></div>
+    	</div>
+    	<div class="item item-4 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    </div><!-- box5 -->
+    <div class="box" style="height:200px;">
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-2 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-5 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>  	
+    </div>
+
+    <div class="box">
+    	<div class="item item-1 b_con_warp">
+    		<div class="b_con_1"></div>
+    		<div class="b_con_2"></div>
+    	</div>
+    	<div class="item item-2" style="flex: 2;display: flex;flex-direction: column;box-shadow: none;">
+    		<div class="c_item item_shadow" style="flex: 1;background: green;margin-bottom: 6px;"></div>
+    		<div class="c_item item_shadow" style="flex: 1;background: yellow;margin-top: 6px;"></div>
+    	</div>
+    	<div class="item item-2" style="flex: 2;display: flex;flex-direction: column;box-shadow: none;">
+    		<div class="c_item item_shadow" style="flex: 1;background: green;margin-bottom: 6px;"></div>
+    		<div class="c_item item_shadow" style="flex: 1;background: yellow;margin-top: 6px;"></div>
+    	</div>
+    </div>
+    <a href="javascript:;" class="back-top">△</a>
+
+    <footer>
+    	<div class="f_item"></div>
+    	<div class="f_item">
+    		<dl>
+    			<dt>标题</dt>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    		</dl>
+    	</div>
+    	<div class="f_item">
+    		<dl>
+    			<dt>标题</dt>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    		</dl>
+    	</div>
+    	<div class="f_item">
+    		<dl>
+    			<dt>标题</dt>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    			<dd>内容</dd>
+    		</dl>
+    	</div>
+    	<div class="f_item"></div>
+    </footer>
+    <!-- js -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/vmc.slider.full.min.js"></script>
+	<script type="text/javascript">
+			$(document).ready(function() {
+				$(window).scroll(function(){
+					var t = $(this).scrollTop();
+					if (t>300) {
+						$('.back-top').stop().fadeIn();
+					}else{
+						$('.back-top').stop().fadeOut();
+					}
+				});
+
+				$('.back-top').click(function(){
+					$('body,html').stop().animate({scrollTop:0},100);
+				});
+
+
+				$('#slider').vmcSlider({
+					width: 1000, // 宽度  
+					height: 300, // 高度
+					gridCol: 10, // 网格列数
+					gridRow: 5, // 网格行数
+					gridVertical: 20,// 栅格列数
+					gridHorizontal: 10, // 栅格行数
+					autoPlay: true,	// 自动播放
+					ascending: true, // 图片按照升序播放
+					effects: [ // 使用的转场动画效果
+						'fade', 'fadeLeft', 'fadeRight', 'fadeTop', 'fadeBottom', 'fadeTopLeft', 'fadeBottomRight',
+						'blindsLeft', 'blindsRight', 'blindsTop', 'blindsBottom', 'blindsTopLeft', 'blindsBottomRight',
+						'curtainLeft', 'curtainRight', 'interlaceLeft', 'interlaceRight', 'mosaic', 'bomb', 'fumes'
+					],
+					ie6Tidy: false, // IE6下精简效果
+					random: false,	// 随机使用转场动画效果
+					duration: 2000,	// 图片停留时长（毫秒）
+					speed: 900		// 转场效果时长（毫秒）
+				});
+
+				
+			});
+	</script>
+</body>
+</html>
